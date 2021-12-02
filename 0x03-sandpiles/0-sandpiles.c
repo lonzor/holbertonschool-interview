@@ -61,6 +61,7 @@ static int check_valid(int grid[3][3])
 /**
   * topple - does the "topple" process
   * @grid: grid where the toppling happens
+  * @grid2: another grid used to 'topple'
   * Return: void
   */
 static void topple(int grid[3][3], int grid2[3][3])
@@ -71,7 +72,6 @@ static void topple(int grid[3][3], int grid2[3][3])
 	{
 		for (j = 0; j < 3; j++)
 		{
-			
 			grid2[i][j] = 0;
 		}
 	}
