@@ -12,7 +12,7 @@ static void grid_sum(int grid1[3][3], int grid2[3][3])
 
 	for (x = 0; x < 3; x++)
 		for (y = 0; y < 3; y++)
-			grid1[x][y] = grid1[x][y] + grid2[x][y]
+			grid1[x][y] = grid1[x][y] + grid2[x][y];
 }
 
 /**
@@ -26,13 +26,13 @@ static void print_grid(int grid[3][3])
 
 	printf("=\n");
 
-	for (x = 0; i < 3; i++)
+	for (x = 0; x < 3; x++)
 	{
 		for (y = 0; y < 3; y++)
 		{
 			if (y)
-				printf(" ")
-			printf("%d", grid[x][y];
+				printf(" ");
+			printf("%d", grid[x][y]);
 		}
 		printf("\n");
 	}
@@ -51,7 +51,7 @@ static int check_valid(int grid[3][3])
 	{
 		for (y = 0; y < 3; y++)
 		{
-			if grid[x][y] > 3
+			if (grid[x][y] > 3)
 				return (0);
 		}
 	}
@@ -72,7 +72,7 @@ static void topple(int grid[3][3])
 	{
 		for (j = 0; j < 3; j++)
 		{
-			count++
+			count++;
 			if (grid[i][j] > 3)
 			{
 				grid[i][j] = grid[i][j] - 4;
@@ -90,12 +90,12 @@ static void topple(int grid[3][3])
 }
 
 /**
- * sandpile_sum - gets sum of two sandpiles
+ * sandpiles_sum - gets sum of two sandpiles
  * @grid1: sandpile 1 that is stable
  * @grid2: another sandpile that is stable
  * Return: void
  */
-void sandpile_sum(int grid1[3][3], int grid2[3][3])
+void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
 	grid_sum(grid1, grid2);
 
