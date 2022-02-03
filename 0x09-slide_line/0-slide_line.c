@@ -1,36 +1,40 @@
 #include "slide_line.h"
 
 /**
- * move_right - slides numbers to the left
+ * move_right - slides numbers to the right
  * @line: pointer to int array
  * @size: count of the elements in an array
  */
 void move_right(int *line, size_t size)
 {
 	size_t x, y;
+	size_t z = 0;
+	size_t j = 0;
 
 	for (x = size; x > 0; x--)
 	{
-		for (y = x - 1; y > 0; y--)
+		z = x - 1;
+		for (y = z; y > 0; y--)
 		{
-			if (line[x - 1] != 0)
+			j = y - 1;
+			if (line[z] != 0)
 			{
-				if (line[x - 1] == line[y - 1])
+				if (line[z] == line[j])
 				{
-					line[x - 1] = line[x - 1] + line[y - 1];
-					line[y - 1] = 0;
+					line[z] = line[z] + line[j];
+					line[j] = 0;
 					break;
 				}
-				if (line[x - 1] != line[y - 1] &&
-				    line[y - 1] != 0)
+				if (line[z] != line[j] &&
+				    line[j] != 0)
 					break;
 			}
-			if (line[x - 1] == 0)
+			if (line[z] == 0)
 			{
-				if (line[y - 1] == 0)
+				if (line[j] != 0)
 				{
-					line[x - 1] = line[y - 1];
-					line[y - 1] = 0;
+					line[z] = line[j];
+					line[j] = 0;
 					x++;
 					break;
 				}
@@ -40,7 +44,7 @@ void move_right(int *line, size_t size)
 }
 
 /**
- * move_left - slides numbers to the right
+ * move_left - slides numbers to the left
  * @line: pointer to int array
  * @size: count of the elements in an array
  */
@@ -90,8 +94,7 @@ int slide_line(int *line, size_t size, int direction)
 {
 	if ((direction != SLIDE_LEFT) && (direction != SLIDE_RIGHT))
 		return (0);
-	if (line == NULL || size < 1)
-		return (0);
+
 	if (direction == 0)
 		move_left(line, size);
 	if (direction == 1)
