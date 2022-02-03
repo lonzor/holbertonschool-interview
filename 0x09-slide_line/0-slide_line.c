@@ -48,17 +48,19 @@ void move_left(int *line, size_t size)
 {
 	size_t x, y, z;
 
-	for (x = 0; y = 0; x < size;)
+	for (x = 0, y = 0; x < size;)
 	{
 		if (line[x] == 0)
-			for (; line[x] == 0)
-				y++;
-		if (x == size - 1)
+			while (line[x] == 0)
+				x++;
+		if (x == (size - 1))
 			break;
+
 		y = x + 1;
 		if (line[y] == 0)
-			for (; line[y] == 0)
+			while (line[y] == 0)
 				y++;
+
 		if (line[x] == line[y])
 		{
 			line[x] = line[x] + line[y];
@@ -70,7 +72,7 @@ void move_left(int *line, size_t size)
 		y = 0;
 	}
 
-	for (x = 0; z = 0; x < size; x++)
+	for (x = 0, z = 0; x < size; x++)
 		if (line[x] != 0)
 			line[z++] = line[x];
 	while (z < size)
