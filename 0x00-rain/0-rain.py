@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 contains function rain()
 """
@@ -12,19 +12,19 @@ def rain(walls):
         return 0
 
     tot_rain = 0
-    l = len(walls)
-    left = [0] * l
-    right = [0] * l
+    wall_length = len(walls)
+    left = [0] * wall_length
+    right = [0] * wall_length
 
     left[0] = walls[0]
-    for i in range(1, l):
+    for i in range(1, wall_length):
         left[i] = max(left[i - 1], walls[i])
 
-    right[l - 1] = walls[l - 1]
-    for i in range(l - 2, -1, -1):
+    right[wall_length - 1] = walls[wall_length - 1]
+    for i in range(wall_length - 2, -1, -1):
         right[i] = max(right[i + 1], walls[i])
 
-    for i in range(0, l):
+    for i in range(0, wall_length):
         tot_rain += min(left[i], right[i]) - walls[i]
 
     return tot_rain
